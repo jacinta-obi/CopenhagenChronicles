@@ -1,11 +1,11 @@
 export const POSTS = [
   {
-    id: "2026-01-12-berlin-weekend",
-    title: "Berlin Weekend: What I’d Do Again",
+    id: "wk1",
+    title: "Weekend 1: In Copenhagen",
     tag: "Travel",
-    date: "2026-01-12",
+    date: "2026-01-17",
     excerpt:
-      "A 48-hour Berlin itinerary with the real costs, the best spots, and what I’d skip next time.",
+      "First weekend and it's in Copeenhagen!! Time to meet some new people and make some new friends.",
     coverImage: "/berlin.jpeg",
     content: `
 ## The vibe
