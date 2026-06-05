@@ -338,6 +338,8 @@ a{ color:inherit; text-decoration:none; }
   border-color: color-mix(in srgb, var(--brand) 40%, var(--border) 60%);
 }
 
+.tag-row{ display:flex; gap:8px; flex-wrap:wrap; }
+
 .featured-actions{ display:flex; gap:10px; flex-wrap:wrap; }
 
 .btn{

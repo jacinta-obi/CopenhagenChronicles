@@ -21,7 +21,8 @@ function formatDate(iso) {
 }
 
 function uniqueTags(posts) {
-  const set = new Set(posts.map((p) => p.tag).filter(Boolean));
+  const set = new Set();
+  posts.forEach((p) => (p.tags ?? []).forEach((t) => set.add(t)));
   return ["all", ...Array.from(set).sort((a, b) => a.localeCompare(b))];
 }
 
@@ -149,11 +150,11 @@ function Home({ posts, query, tag, setTag, sort, setSort }) {
     const q = safeText(query).toLowerCase();
     let out = posts.slice();
 
-    if (tag !== "all") out = out.filter((p) => p.tag?.toLowerCase() === tag.toLowerCase());
+    if (tag !== "all") out = out.filter((p) => p.tags?.toLowerCase() === tag.toLowerCase());
 
     if (q) {
       out = out.filter((p) => {
-        const hay = `${p.title} ${p.tag} ${p.excerpt} ${p.content}`.toLowerCase();
+        const hay = `${p.title} ${(p.tags ?? []).join(" ")} ${p.excerpt} ${p.content}`.toLowerCase();
         return hay.includes(q);
       });
     }
@@ -191,7 +192,11 @@ function Home({ posts, query, tag, setTag, sort, setSort }) {
 
               <div className="featured-meta">
                 <span className="pill">{formatDate(featured?.date)}</span>
-                <span className="pill pill-strong">{featured?.tag ?? "General"}</span>
+                <div className="tag-row">
+                  {(post.tags ?? ["General"]).map((t) => (
+                    <span key={t} className="pill pill-strong">{t}</span>
+                  ))}
+                </div>
               </div>
 
               <div className="featured-actions">

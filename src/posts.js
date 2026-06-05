@@ -52,8 +52,8 @@ More soon ✨`,
 
   {
     id: "Sweden",
-    title: "",
-    tag: "Travel",
+    title: "First friend trip to Malmo, Sweden!",
+    tag: ["Travel", "Sweden"],
     date: "2026-01-13",
     excerpt: "",
     coverImage: "",
