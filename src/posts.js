@@ -49,4 +49,124 @@ gallery: [
 ---
 More soon ✨`,
   },
+
+  {
+    id: "Sweden",
+    title: "",
+    tag: "Travel",
+    date: "2026-01-13",
+    excerpt: "",
+    coverImage: "",
+    content: ``,
+  },
+
+  {
+    id: "Germany",
+    title: "",
+    tag: "Travel",
+    date: "2026-01-13",
+    excerpt: "",
+    coverImage: "",
+    content: ``,
+  },
+
+  {
+    id: "Hungary",
+    title: "",
+    tag: "Travel",
+    date: "2026-01-13",
+    excerpt: "",
+    coverImage: "",
+    content: ``,
+  },
+
+  {
+    id: "Czechia",
+    title: "",
+    tag: "Travel",
+    date: "2026-01-13",
+    excerpt: "",
+    coverImage: "",
+    content: ``,
+  },
+
+  {
+    id: "France",
+    title: "",
+    tag: "Travel",
+    date: "2026-01-13",
+    excerpt: "",
+    coverImage: "",
+    content: ``,
+  },
+
+  {
+    id: "Belgium",
+    title: "",
+    tag: "Travel",
+    date: "2026-01-13",
+    excerpt: "",
+    coverImage: "",
+    content: ``,
+  },
+
+  {
+    id: "Italy",
+    title: "",
+    tag: "Travel",
+    date: "2026-01-13",
+    excerpt: "",
+    coverImage: "",
+    content: ``,
+  },
+
+  {
+    id: "Netherlands",
+    title: "",
+    tag: "Travel",
+    date: "2026-01-13",
+    excerpt: "",
+    coverImage: "",
+    content: ``,
+  },
+
+  {
+    id: "Morrocco",
+    title: "",
+    tag: "Travel",
+    date: "2026-01-13",
+    excerpt: "",
+    coverImage: "",
+    content: ``,
+  },
+
+  {
+    id: "Malta",
+    title: "",
+    tag: "Travel",
+    date: "2026-01-13",
+    excerpt: "",
+    coverImage: "",
+    content: ``,
+  },
+
+  {
+    id: "Spain",
+    title: "",
+    tag: "Travel",
+    date: "2026-01-13",
+    excerpt: "",
+    coverImage: "",
+    content: ``,
+  },
+  
+  {
+    id: "Portugal",
+    title: "",
+    tag: "Travel",
+    date: "2026-01-13",
+    excerpt: "",
+    coverImage: "",
+    content: ``,
+  },
 ];
