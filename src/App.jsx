@@ -150,7 +150,11 @@ function Home({ posts, query, tag, setTag, sort, setSort }) {
     const q = safeText(query).toLowerCase();
     let out = posts.slice();
 
-    if (tag !== "all") out = out.filter((p) => p.tags?.toLowerCase() === tag.toLowerCase());
+    if (tag !== "all") {
+      out = out.filter((p) =>
+        (p.tags ?? (p.tag ? [p.tag] : [])).some((t) => t.toLowerCase() === tag.toLowerCase())
+      );
+    }
 
     if (q) {
       out = out.filter((p) => {
@@ -193,9 +197,10 @@ function Home({ posts, query, tag, setTag, sort, setSort }) {
               <div className="featured-meta">
                 <span className="pill">{formatDate(featured?.date)}</span>
                 <div className="tag-row">
-                  {(post.tags ?? ["General"]).map((t) => (
+                  {(featured?.tags ?? (featured?.tag ? [featured.tag] : ["General"])).map((t) => (
                     <span key={t} className="pill pill-strong">{t}</span>
                   ))}
+                </div>
                 </div>
               </div>
 
@@ -227,7 +232,6 @@ function Home({ posts, query, tag, setTag, sort, setSort }) {
               </div>
             </div>
           </div>
-        </div>
       </section>
 
       <section id="posts" className="section">
@@ -379,7 +383,11 @@ useEffect(() => {
 
           <div className="post-full-head">
             <div className="meta">
-              <span className="pill pill-strong">{post.tag || "General"}</span>
+            <div className="tag-row">
+              {(post.tags ?? (post.tag ? [post.tag] : ["General"])).map((t) => (
+                <span key={t} className="pill pill-strong">{t}</span>
+              ))}
+            </div>
               <span className="pill">{formatDate(post.date)}</span>
             </div>
             <h1 className="post-title">{post.title}</h1>
