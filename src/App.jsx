@@ -22,7 +22,12 @@ function formatDate(iso) {
 
 function uniqueTags(posts) {
   const set = new Set();
-  posts.forEach((p) => (p.tags ?? []).forEach((t) => set.add(t)));
+
+  posts.forEach((p) => {
+    const list = p.tags ?? (p.tag ? [p.tag] : []);
+    list.flat().forEach((t) => set.add(t));
+  });
+
   return ["all", ...Array.from(set).sort((a, b) => a.localeCompare(b))];
 }
 
@@ -116,10 +121,19 @@ function PostCard({ post }) {
     >
       <div className="post-tile-overlay" />
       <div className="post-tile-content">
-        <div className="meta">
-          <span className="pill pill-strong">{post.tag || "General"}</span>
-          <span className="pill">{formatDate(post.date)}</span>
-        </div>
+      <div className="post-date-pill">
+  <span className="pill">{formatDate(post.date)}</span>
+</div>
+
+<div className="meta">
+  <div className="tag-row">
+    {(post.tags ?? (post.tag ? [post.tag] : ["General"])).map((t) => (
+      <span key={t} className="pill pill-strong">
+        {t}
+      </span>
+    ))}
+  </div>
+</div>
 
         <h3 className="post-tile-title">{post.title || "Untitled"}</h3>
         <p className="post-tile-excerpt">{post.excerpt || ""}</p>
@@ -155,7 +169,7 @@ function Home({ posts, query, tag, setTag, sort, setSort }) {
         (p.tags ?? (p.tag ? [p.tag] : [])).some((t) => t.toLowerCase() === tag.toLowerCase())
       );
     }
-
+    
     if (q) {
       out = out.filter((p) => {
         const hay = `${p.title} ${(p.tags ?? []).join(" ")} ${p.excerpt} ${p.content}`.toLowerCase();
@@ -202,7 +216,7 @@ function Home({ posts, query, tag, setTag, sort, setSort }) {
                   ))}
                 </div>
                 </div>
-              </div>
+              
 
               <div className="featured-actions">
                 {featured ? (
@@ -231,6 +245,7 @@ function Home({ posts, query, tag, setTag, sort, setSort }) {
                 <div className="stat-label">weekend trips</div>
               </div>
             </div>
+          </div>
           </div>
       </section>
 
@@ -383,11 +398,7 @@ useEffect(() => {
 
           <div className="post-full-head">
             <div className="meta">
-            <div className="tag-row">
-              {(post.tags ?? (post.tag ? [post.tag] : ["General"])).map((t) => (
-                <span key={t} className="pill pill-strong">{t}</span>
-              ))}
-            </div>
+              <span className="pill pill-strong">{post.tag || "General"}</span>
               <span className="pill">{formatDate(post.date)}</span>
             </div>
             <h1 className="post-title">{post.title}</h1>

@@ -642,11 +642,42 @@ kbd{
 .post-full-head{
   padding: 14px 6px 6px;
 }
+
 .post-title{
   margin: 10px 0 8px;
   font-size: clamp(28px, 4vw, 44px);
   line-height: 1.05;
 }
+.post-tile{
+  position: relative;
+}
+.post-date-pill{
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 2;
+}
+.post-date-pill .pill{
+  color: rgba(255,255,255,0.92);
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.22);
+}
+@media (max-width: 560px){
+  .post-tile-content .meta{
+    padding-right: 0;
+  }
+
+  .post-date-pill{
+    top: 14px;
+    right: 14px;
+  }
+}
+
+.post-tile-content .meta{
+  padding-right: 160px;
+}
+
+
 .post-markdown{
   max-width: 72ch;
   margin-inline: auto;
