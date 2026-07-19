@@ -427,6 +427,23 @@ useEffect(() => {
             </section>
           )}
 
+          {post.albumLink ? (
+            <div className="album-link-box">
+              <h2>Want to see the full album?</h2>
+              <p className="muted">
+                I picked a few favorites here, but the full photo dump is linked below.
+              </p>
+              <a
+                className="btn btn-primary"
+                href={post.albumLink}
+                target="_blank"
+                rel="noreferrer"
+              >
+                View full photo album →
+              </a>
+            </div>
+          ) : null}
+
           <div className="post-nav">
             {prevPost ? (
               <Link className="btn btn-ghost" to={`/post/${prevPost.id}`}>← {prevPost.title}</Link>

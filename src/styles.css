@@ -719,6 +719,18 @@ kbd{
   border-radius: 12px;
 }
 
+.album-link-box{
+  margin: 24px 0;
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--panel) 90%, transparent);
+}
+
+.album-link-box h2{
+  margin: 0 0 8px;
+}
+
 .post-nav{
   margin-top: 16px;
   display:flex;

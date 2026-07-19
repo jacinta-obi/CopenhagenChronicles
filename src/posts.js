@@ -6,6 +6,14 @@ export const POSTS = [
     date: "2026-01-16",
     excerpt: "My first official weekend in Copenhagen: overpacked bags, airport strangers, a viral TikTok, getting stuck in an elevator, and realizing this abroad semester might be exactly what I needed.",
     coverImage: "/gallery/arrival.jpg",
+    albumLink: "https://photos.app.goo.gl/3wrWdKyi79UXtCaV9",
+    gallery: [
+      { src: "/gallery/JourneytoCPH/airport.jpg", caption: "The infamous halls of ORD." },
+      { src: "/gallery/JourneytoCPH/outside.jpg", caption: "Stuck in the elvator...yay" },
+      { src: "/gallery/JourneytoCPH/mira.jpg", caption: "My friend Mira as we discover the CPH escalators" },
+      { src: "/gallery/JourneytoCPH/market.jpg", caption: "Had to stock my fridge real quick." },
+      { src: "/gallery/JourneytoCPH/girls.jpg", caption: "First night out at The Dubliner." },
+    ],
     content: `
 
 This is the official beginning of Copenhagen Chronicles: two checked bags, one backpack, one carry-on, 
