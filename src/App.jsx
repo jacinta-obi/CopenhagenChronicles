@@ -397,17 +397,55 @@ useEffect(() => {
           ) : null}
 
           <div className="post-full-head">
-            <div className="meta">
-              <span className="pill pill-strong">{post.tag || "General"}</span>
-              <span className="pill">{formatDate(post.date)}</span>
+          <div className="meta">
+            <div className="tag-row">
+              {(post.tags ?? (post.tag ? [post.tag] : ["General"])).flat().map((t) => (
+                <span key={t} className="pill pill-strong">
+                  {t}
+                </span>
+              ))}
             </div>
+            <span className="pill">{formatDate(post.date)}</span>
+          </div>
             <h1 className="post-title">{post.title}</h1>
             <p className="muted">{post.excerpt}</p>
+            <div className="post-quick-info">
+              <div>
+                <span className="quick-label">Location</span>
+                <strong>{post.location || "Copenhagen, Denmark"}</strong>
+              </div>
+              <div>
+                <span className="quick-label">Trip type</span>
+                <strong>{post.tripType || "Arrival weekend"}</strong>
+              </div>
+              <div>
+                <span className="quick-label">Vibe</span>
+                <strong>{post.vibe || "Overpacked, excited, slightly chaotic"}</strong>
+              </div>
+            </div>
           </div>
 
           <div className="post-markdown">
             <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
           </div>
+
+          {post.albumLink ? (
+            <div className="album-link-box">
+              <p className="eyebrow">Photo dump</p>
+              <h2>Want the full camera roll?</h2>
+              <p className="muted">
+                I picked a few favorites for the post, but the full Copenhagen arrival album is linked here.
+              </p>
+              <a
+                className="btn btn-primary"
+                href={post.albumLink}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Open full album →
+              </a>
+            </div>
+          ) : null}
 
           {(post.gallery?.length ?? 0) > 0 && (
             <div className="divider" />
@@ -415,7 +453,11 @@ useEffect(() => {
 
           {(post.gallery?.length ?? 0) > 0 && (
             <section>
-              <h2>Photo gallery</h2>
+              <div className="gallery-head">
+                <p className="eyebrow">Snapshots</p>
+                <h2>Scenes from the weekend</h2>
+                <p className="muted">A few favorites from the arrival chaos.</p>
+              </div>
               <div className="gallery-grid">
                 {post.gallery.map((img, i) => (
                   <figure key={i} className="gallery-item">
@@ -426,23 +468,6 @@ useEffect(() => {
               </div>
             </section>
           )}
-
-          {post.albumLink ? (
-            <div className="album-link-box">
-              <h2>Want to see the full album?</h2>
-              <p className="muted">
-                I picked a few favorites here, but the full photo dump is linked below.
-              </p>
-              <a
-                className="btn btn-primary"
-                href={post.albumLink}
-                target="_blank"
-                rel="noreferrer"
-              >
-                View full photo album →
-              </a>
-            </div>
-          ) : null}
 
           <div className="post-nav">
             {prevPost ? (
