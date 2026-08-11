@@ -447,27 +447,6 @@ useEffect(() => {
             </div>
           ) : null}
 
-          {(post.gallery?.length ?? 0) > 0 && (
-            <div className="divider" />
-          )}
-
-          {(post.gallery?.length ?? 0) > 0 && (
-            <section>
-              <div className="gallery-head">
-                <p className="eyebrow">Snapshots</p>
-                <h2>Scenes from the weekend</h2>
-                <p className="muted">A few favorites from the arrival chaos.</p>
-              </div>
-              <div className="gallery-grid">
-                {post.gallery.map((img, i) => (
-                  <figure key={i} className="gallery-item">
-                    <img src={img.src} alt={img.caption || post.title} loading="lazy" />
-                    {img.caption ? <figcaption className="gallery-cap">{img.caption}</figcaption> : null}
-                  </figure>
-                ))}
-              </div>
-            </section>
-          )}
 
           <div className="post-nav">
             {prevPost ? (
